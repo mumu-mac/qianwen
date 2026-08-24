@@ -612,25 +612,11 @@
         z-index: 2;
       }
 
-      .composer-form::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        border-radius: 8px;
-        background: #fff;
-        opacity: 0;
-        pointer-events: none;
-      }
-
       .bottom-shell.is-typing .composer-form {
         top: 40%;
         right: 17%;
         left: 7%;
         height: 20%;
-      }
-
-      .bottom-shell.is-typing .composer-form::before {
-        opacity: 1;
       }
 
       .composer-input {
@@ -906,7 +892,7 @@
           <div class="cards" aria-label="可左右滑动的奶茶店卡片">
             ${displayStores.map(storeCard).join("")}
           </div>
-          <p class="copy">您符合新人/老用户回归礼包，请及时领取。结合“${escapeHtml(query)}”这个需求，当前为你优先展示蜜雪冰城、霸王茶姬、喜茶、奈雪的茶、茶百道和古茗。</p>
+          <p class="copy">您符合新人/老用户回归礼包，请及时领取。您的“${escapeHtml(query)}”，当前为你优先展示蜜雪冰城、霸王茶姬、喜茶、奈雪的茶、茶百道和古茗。</p>
           <p class="copy">这些店铺覆盖清爽果茶、原叶鲜奶茶、厚乳、芝士水果茶和经典珍珠奶茶，商品图片会随机换位展示，方便快速浏览。</p>
         `;
 
