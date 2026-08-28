@@ -12,6 +12,9 @@
     <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="512x512" href="./qwen-app-icon.png" />
     <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="preload" as="image" href="./assets/img-001.webp" fetchpriority="high" />
+    <link rel="preload" as="image" href="./assets/img-002.webp" fetchpriority="high" />
+    <link rel="preload" as="image" href="./assets/img-009.webp" />
     <title>千问奶茶推荐</title>
     <style>
       * {
@@ -663,7 +666,7 @@
         justify-content: center;
         width: 11%;
         height: 4.8%;
-        background: #fff;
+        background: transparent;
         color: #6f6f6f;
         font-size: 9px;
         font-weight: 400;
@@ -1133,6 +1136,37 @@
         showTeaResults(value);
       }
 
+      function warmImages() {
+        const imageUrls = [
+          rewardImage,
+          avatarImage,
+          "assets/composer-typing.webp",
+          ...stores.flatMap((store) => [store.logoUrl, store.boardImage])
+        ];
+        const uniqueUrls = [...new Set(imageUrls)];
+        const preload = () => {
+          uniqueUrls.forEach((url) => {
+            const image = new Image();
+            image.decoding = "async";
+            image.src = url;
+          });
+        };
+
+        if ("requestIdleCallback" in window) {
+          requestIdleCallback(preload, { timeout: 1200 });
+          return;
+        }
+
+        setTimeout(preload, 300);
+      }
+
+      function registerFastCache() {
+        if (!("serviceWorker" in navigator) || location.protocol === "file:") return;
+        window.addEventListener("load", () => {
+          navigator.serviceWorker.register("./sw.js").catch(() => {});
+        });
+      }
+
       topBackHit.addEventListener("click", () => {
         clearTimeout(inputTimer);
         composerInput.value = "";
@@ -1154,6 +1188,8 @@
       });
 
       renderWelcome();
+      warmImages();
+      registerFastCache();
     </script>
   </body>
 </html>
