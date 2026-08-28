@@ -273,11 +273,43 @@
       }
 
       .price {
-        display: flex;
-        align-items: baseline;
-        gap: 6px;
+        display: grid;
+        gap: 3px;
         margin-top: 5px;
         line-height: 1.2;
+      }
+
+      .deal-line {
+        display: flex;
+        align-items: baseline;
+        gap: 3px;
+        color: #ff2d2f;
+        white-space: nowrap;
+      }
+
+      .deal-line strong {
+        color: #ff2d2f;
+        font-size: 12px;
+        font-weight: 600;
+      }
+
+      .deal-label {
+        font-size: 10px;
+        font-weight: 500;
+      }
+
+      .saving-line {
+        display: inline-flex;
+        width: max-content;
+        max-width: 100%;
+        align-items: center;
+        overflow: hidden;
+        padding: 1px 3px;
+        border: 1px solid rgba(255, 45, 47, 0.32);
+        border-radius: 5px;
+        color: #ff2d2f;
+        font-size: 8.5px;
+        font-weight: 400;
         white-space: nowrap;
       }
 
@@ -288,10 +320,8 @@
         text-decoration: line-through;
       }
 
-      .price strong {
-        color: #ff2d2f;
-        font-size: 12px;
-        font-weight: 600;
+      .saving-line .original {
+        font-size: inherit;
       }
 
       .action {
@@ -767,7 +797,73 @@
     </main>
 
     <script>
-      const stores = [{"name":"蜜雪冰城","logoUrl":"assets/img-003.webp","category":"公开菜单价","products":[{"name":"蜜桃四季春","price":"14"},{"name":"柠檬红茶","price":"5"},{"name":"满杯百香果","price":"7"},{"name":"满杯百香果","price":"7"},{"name":"蜜桃四季春","price":"7"},{"name":"珍珠奶茶","price":"6"}],"boardImage":"assets/product-board-mixue.webp"},{"name":"霸王茶姬","logoUrl":"assets/img-004.webp","category":"公开菜单价","products":[{"name":"寻香山茶","price":"16"},{"name":"青青糯山","price":"15"},{"name":"花田乌龙","price":"16"},{"name":"白雾红尘","price":"18"},{"name":"伯牙绝弦","price":"16"},{"name":"黄皮油柑单丛","price":"16"}],"boardImage":"assets/product-board-bawang.webp"},{"name":"喜茶","logoUrl":"assets/img-005.webp","category":"公开菜单价","products":[{"name":"酷黑莓桑(首创)","price":"19"},{"name":"满杯红柚(首创)","price":"18"},{"name":"芒芒甘露(首创)","price":"18"},{"name":"多肉葡萄(首创)","price":"18"},{"name":"羽衣纤体瓶PLUS","price":"25"},{"name":"去火*纤体瓶PLUS","price":"25"}],"boardImage":"assets/product-board-heytea.webp"},{"name":"奈雪的茶","logoUrl":"assets/img-006.webp","category":"公开菜单价","products":[{"name":"霸气杨枝甘露","price":"19"},{"name":"霸气橙子","price":"19"},{"name":"霸气芝士葡萄","price":"23"},{"name":"霸气芝士芒果","price":"23"},{"name":"霸气青柑柠檬茶","price":"15"},{"name":"初雪云酪苹果冰","price":"24"}],"boardImage":"assets/product-board-nayuki.webp"}];
+      const stores = [
+        {
+          name: "蜜雪冰城",
+          logoUrl: "assets/img-003.webp",
+          products: [
+            { name: "桃喜芒芒", originalPrice: "9", save: "8.99" },
+            { name: "黄桃果霸", originalPrice: "9", save: "8.99" },
+            { name: "芋圆葡萄", originalPrice: "10.2", save: "10.19" },
+            { name: "草莓啵啵", originalPrice: "10.2", save: "10.19" },
+            { name: "满杯百香果", originalPrice: "9", save: "8.99" },
+            { name: "蜜桃四季春", originalPrice: "9", save: "8.99" }
+          ],
+          boardImage: "assets/product-board-mixue.webp"
+        },
+        {
+          name: "茶百道",
+          logoUrl: "assets/img-007.webp",
+          products: [
+            { name: "杨枝甘露", originalPrice: "18", save: "17.99" },
+            { name: "西瓜啵啵", originalPrice: "16", save: "15.99" },
+            { name: "葡萄冻冻", originalPrice: "16", save: "15.99" },
+            { name: "青提茉莉", originalPrice: "16", save: "15.99" },
+            { name: "茉莉葡萄冰奶", originalPrice: "15", save: "14.99" },
+            { name: "活菌·酸奶紫米露", originalPrice: "18", save: "17.99" }
+          ],
+          boardImage: "assets/product-board-chabaidao.webp"
+        },
+        {
+          name: "沪上阿姨",
+          logoUrl: "assets/logo-hushang.webp",
+          products: [
+            { name: "杨枝甘露经典版", originalPrice: "19", save: "18.99" },
+            { name: "西瓜椰椰", originalPrice: "16", save: "15.99" },
+            { name: "羽衣甘蓝纤体瓶", originalPrice: "16", save: "15.99" },
+            { name: "超鲜多肉葡萄金砖", originalPrice: "18", save: "17.99" },
+            { name: "经典拿铁", originalPrice: "16", save: "15.99" },
+            { name: "香椰拿铁", originalPrice: "18", save: "17.99" }
+          ],
+          boardImage: "assets/product-board-hushang.webp"
+        },
+        {
+          name: "霸王茶姬",
+          logoUrl: "assets/img-004.webp",
+          products: [
+            { name: "伯牙绝弦", originalPrice: "16", save: "15.99" },
+            { name: "锡兰红茶", originalPrice: "15", save: "14.99" },
+            { name: "青沫观音", originalPrice: "15", save: "14.99" },
+            { name: "青青糯山", originalPrice: "15", save: "14.99" },
+            { name: "桂馥兰香", originalPrice: "18", save: "17.99" },
+            { name: "白雾红尘", originalPrice: "18", save: "17.99" }
+          ],
+          boardImage: "assets/product-board-bawang.webp"
+        },
+        {
+          name: "书亦烧仙草",
+          logoUrl: "assets/logo-shuyi.webp",
+          products: [
+            { name: "一桶大西瓜椰椰", originalPrice: "19", save: "18.99" },
+            { name: "一桶大牛奶烧仙草", originalPrice: "19", save: "18.99" },
+            { name: "一桶大爆有料烧仙草", originalPrice: "19", save: "18.99" },
+            { name: "一桶大脆啵啵手捣鲜橙", originalPrice: "18", save: "17.99" },
+            { name: "脆啵啵鲜榨西瓜", originalPrice: "12", save: "11.99" },
+            { name: "西红柿蛋花汤", originalPrice: "15", save: "14.99" }
+          ],
+          boardImage: "assets/product-board-shuyi.webp"
+        }
+      ];
 
       const content = document.querySelector("#content");
       const composerForm = document.querySelector("#composer-form");
@@ -809,7 +905,7 @@
       });
 
       function randomizedStores() {
-        return shuffledCopy(storesWithBranches);
+        return storesWithBranches;
       }
 
 
@@ -855,7 +951,7 @@
       function recommendationCopy(query) {
         const picks = shuffledCopy(recommendationPool).slice(0, 3);
         return `
-          <p class="copy">嗨～看到您回来太开心啦！千问识别到【${escapeHtml(query)}】已为您匹配了“新人回归礼包”，里面优先放了蜜雪冰城、霸王茶姬、喜茶、奈雪的茶的福利，快去看看吧！</p>
+          <p class="copy">嗨～看到您回来太开心啦！千问识别到【${escapeHtml(query)}】已为您匹配了“新人回归礼包”，里面优先放了蜜雪冰城、茶百道、沪上阿姨、霸王茶姬、书亦烧仙草的福利，快去看看吧！</p>
           <div class="recommend-list">
             ${picks.map((item) => `
               <section>
@@ -902,7 +998,10 @@
         return store.products.slice(0, 6).map((product, index) => `
             <div>
               <div class="photo photo-sprite product-slot-${index}"><span class="tag">${product.name}</span></div>
-              <div class="price"><span class="original">￥${product.price}</span><strong>￥0.1</strong></div>
+              <div class="price">
+                <div class="deal-line"><strong>￥0.01</strong><span class="deal-label">一口价</span></div>
+                <div class="saving-line"><span>立省￥${product.save}</span><span>｜</span><span class="original">原价￥${product.originalPrice}</span></div>
+              </div>
             </div>
           `).join("");
       }
@@ -925,7 +1024,7 @@
             </div>
             <p class="desc">${storeName} 的热门单品包含 ${productNames(store, 4)}，适合先看口味和价格，再进店下单。</p>
             <div class="goods" style="--board-image: url('${store.boardImage}')">${productGrid(store)}</div>
-            <button class="action" type="button" data-reshuffle="1">进店选购</button>
+            <button class="action" type="button">进店选购</button>
           </article>
         `;
       }
@@ -997,9 +1096,6 @@
           ${recommendationCopy(query)}
         `;
 
-        content.querySelectorAll("[data-reshuffle]").forEach((button) => {
-          button.addEventListener("click", () => renderList(lastQuery));
-        });
       }
 
       function renderDetail(index) {
@@ -1017,7 +1113,7 @@
               </div>
               <div class="distance">附近<br />可选购</div>
             </div>
-            <p class="desc">${store.name} 当前展示 ${productNames(store, 6)}。你可以先对比口味和原价，再结合 ￥0.1 选择想喝的单品。</p>
+            <p class="desc">${store.name} 当前展示 ${productNames(store, 6)}。你可以先对比口味和原价，再结合 ￥0.01 一口价选择想喝的单品。</p>
             <p class="section-title">热门产品</p>
             <div class="goods" style="--board-image: url('${store.boardImage}')">${productGrid(store)}</div>
             <button class="action" type="button">进店选购</button>
