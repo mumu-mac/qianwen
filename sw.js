@@ -1,4 +1,4 @@
-const CACHE_NAME = "qwen-mobile-fast-v20260828-01";
+const CACHE_NAME = "qwen-mobile-fast-v20260828-02";
 
 const ASSETS = [
   "./",
