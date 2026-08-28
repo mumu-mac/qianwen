@@ -203,6 +203,36 @@
         background: #f7f8fb;
       }
 
+      .photo-sprite {
+        background-image: var(--board-image);
+        background-repeat: no-repeat;
+        background-size: 300% 200%;
+      }
+
+      .product-slot-0 {
+        background-position: 0% 0%;
+      }
+
+      .product-slot-1 {
+        background-position: 50% 0%;
+      }
+
+      .product-slot-2 {
+        background-position: 100% 0%;
+      }
+
+      .product-slot-3 {
+        background-position: 0% 100%;
+      }
+
+      .product-slot-4 {
+        background-position: 50% 100%;
+      }
+
+      .product-slot-5 {
+        background-position: 100% 100%;
+      }
+
       .photo img {
         display: block;
         width: 100%;
@@ -245,7 +275,7 @@
       .price {
         display: flex;
         align-items: baseline;
-        gap: 5px;
+        gap: 6px;
         margin-top: 5px;
         line-height: 1.2;
         white-space: nowrap;
@@ -253,7 +283,7 @@
 
       .price .original {
         color: #a2a7b2;
-        font-size: 9px;
+        font-size: 12px;
         font-weight: 400;
         text-decoration: line-through;
       }
@@ -288,6 +318,37 @@
 
       .copy + .copy {
         margin-top: 10px;
+      }
+
+      .recommend-list {
+        display: grid;
+        gap: 12px;
+        margin-top: 12px;
+        padding-bottom: 8px;
+      }
+
+      .rec-title {
+        margin: 0 0 5px;
+        color: #252a3a;
+        font-size: 15px;
+        font-weight: 600;
+        line-height: 1.45;
+      }
+
+      .rec-body {
+        margin: 0;
+        color: #36405b;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.62;
+      }
+
+      .rec-note {
+        margin: 5px 0 0;
+        color: #6c7280;
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 1.5;
       }
 
       .back {
@@ -706,7 +767,7 @@
     </main>
 
     <script>
-      const stores = [{"name":"蜜雪冰城","logoUrl":"assets/img-003.webp","category":"公开菜单价","products":[{"name":"蜜桃四季春","price":"14","image":"assets/product-01.webp"},{"name":"柠檬红茶","price":"5","image":"assets/product-02.webp"},{"name":"满杯百香果","price":"7","image":"assets/product-03.webp"},{"name":"满杯百香果","price":"7","image":"assets/product-04.webp"},{"name":"蜜桃四季春","price":"7","image":"assets/product-05.webp"},{"name":"珍珠奶茶","price":"6","image":"assets/product-06.webp"}]},{"name":"霸王茶姬","logoUrl":"assets/img-004.webp","category":"公开菜单价","products":[{"name":"寻香山茶","price":"16","image":"assets/product-01.webp"},{"name":"青青糯山","price":"15","image":"assets/product-02.webp"},{"name":"花田乌龙","price":"16","image":"assets/product-03.webp"},{"name":"白雾红尘","price":"18","image":"assets/product-04.webp"},{"name":"伯牙绝弦","price":"16","image":"assets/product-05.webp"},{"name":"黄皮油柑单丛","price":"16","image":"assets/product-06.webp"}]},{"name":"喜茶","logoUrl":"assets/img-005.webp","category":"公开菜单价","products":[{"name":"酷黑莓桑(首创)","price":"19","image":"assets/product-01.webp"},{"name":"满杯红柚(首创)","price":"18","image":"assets/product-02.webp"},{"name":"芒芒甘露(首创)","price":"18","image":"assets/product-03.webp"},{"name":"多肉葡萄(首创)","price":"18","image":"assets/product-04.webp"},{"name":"羽衣纤体瓶PLUS","price":"25","image":"assets/product-05.webp"},{"name":"去火*纤体瓶PLUS","price":"25","image":"assets/product-06.webp"}]},{"name":"奈雪的茶","logoUrl":"assets/img-006.webp","category":"公开菜单价","products":[{"name":"霸气杨枝甘露","price":"19","image":"assets/product-01.webp"},{"name":"霸气橙子","price":"19","image":"assets/product-02.webp"},{"name":"霸气芝士葡萄","price":"23","image":"assets/product-03.webp"},{"name":"霸气芝士芒果","price":"23","image":"assets/product-04.webp"},{"name":"霸气青柑柠檬茶","price":"15","image":"assets/product-05.webp"},{"name":"初雪云酪苹果冰","price":"24","image":"assets/product-06.webp"}]},{"name":"茶百道","logoUrl":"assets/img-007.webp","category":"公开菜单价","products":[{"name":"生椰拿铁","price":"19","image":"assets/product-01.webp"},{"name":"芒果冰奶","price":"18","image":"assets/product-02.webp"},{"name":"豆乳玉麒麟","price":"14","image":"assets/product-03.webp"},{"name":"茉莉奶绿","price":"10","image":"assets/product-04.webp"},{"name":"杨枝甘露","price":"17","image":"assets/product-05.webp"},{"name":"瑰夏凤梨流沙美式","price":"19","image":"assets/product-06.webp"}]},{"name":"古茗","logoUrl":"assets/img-008.webp","category":"公开菜单价","products":[{"name":"超A芝士葡萄","price":"19","image":"assets/product-01.webp"},{"name":"大叔奶茶","price":"12","image":"assets/product-02.webp"},{"name":"茉莉奶绿","price":"10","image":"assets/product-03.webp"},{"name":"超A芝士葡萄","price":"20","image":"assets/product-04.webp"},{"name":"杨枝甘露轻盈版","price":"16","image":"assets/product-05.webp"},{"name":"满杯红玉石榴","price":"15","image":"assets/product-06.webp"}]}];
+      const stores = [{"name":"蜜雪冰城","logoUrl":"assets/img-003.webp","category":"公开菜单价","products":[{"name":"蜜桃四季春","price":"14"},{"name":"柠檬红茶","price":"5"},{"name":"满杯百香果","price":"7"},{"name":"满杯百香果","price":"7"},{"name":"蜜桃四季春","price":"7"},{"name":"珍珠奶茶","price":"6"}],"boardImage":"assets/product-board-mixue.webp"},{"name":"霸王茶姬","logoUrl":"assets/img-004.webp","category":"公开菜单价","products":[{"name":"寻香山茶","price":"16"},{"name":"青青糯山","price":"15"},{"name":"花田乌龙","price":"16"},{"name":"白雾红尘","price":"18"},{"name":"伯牙绝弦","price":"16"},{"name":"黄皮油柑单丛","price":"16"}],"boardImage":"assets/product-board-bawang.webp"},{"name":"喜茶","logoUrl":"assets/img-005.webp","category":"公开菜单价","products":[{"name":"酷黑莓桑(首创)","price":"19"},{"name":"满杯红柚(首创)","price":"18"},{"name":"芒芒甘露(首创)","price":"18"},{"name":"多肉葡萄(首创)","price":"18"},{"name":"羽衣纤体瓶PLUS","price":"25"},{"name":"去火*纤体瓶PLUS","price":"25"}],"boardImage":"assets/product-board-heytea.webp"},{"name":"奈雪的茶","logoUrl":"assets/img-006.webp","category":"公开菜单价","products":[{"name":"霸气杨枝甘露","price":"19"},{"name":"霸气橙子","price":"19"},{"name":"霸气芝士葡萄","price":"23"},{"name":"霸气芝士芒果","price":"23"},{"name":"霸气青柑柠檬茶","price":"15"},{"name":"初雪云酪苹果冰","price":"24"}],"boardImage":"assets/product-board-nayuki.webp"}];
 
       const content = document.querySelector("#content");
       const composerForm = document.querySelector("#composer-form");
@@ -718,7 +779,6 @@
       let lastQuery = "奶茶";
       let inputTimer;
       let rewardTimer;
-      const fixedProductImages = ["assets/product-01.webp", "assets/product-02.webp", "assets/product-03.webp", "assets/product-04.webp", "assets/product-05.webp", "assets/product-06.webp"];
       const branchPool = [
         { city: "上海", road: "南京西路" },
         { city: "北京", road: "建国路" },
@@ -739,19 +799,17 @@
           .map((entry) => entry.item);
       }
 
-      function shuffledProductImages() {
-        return shuffledCopy(fixedProductImages);
-      }
+      const initialBranches = shuffledCopy(branchPool);
+      const storesWithBranches = stores.map((store, index) => {
+        const branch = initialBranches[index % initialBranches.length];
+        return {
+          ...store,
+          displayName: `${store.name}（${branch.road}店）`
+        };
+      });
 
       function randomizedStores() {
-        const branches = shuffledCopy(branchPool);
-        return shuffledCopy(stores).map((store, index) => {
-          const branch = branches[index % branches.length];
-          return {
-            ...store,
-            displayName: `${store.name}（${branch.road}店）`
-          };
-        });
+        return shuffledCopy(storesWithBranches);
       }
 
 
@@ -763,6 +821,51 @@
           '"': "&quot;",
           "'": "&#39;"
         }[char]));
+      }
+
+      const recommendationPool = [
+        {
+          title: "今日首选：伯牙绝弦（茉莉鲜牛乳）",
+          body: "霸王茶姬同款逻辑，茉莉雪芽加鲜牛乳，茶香清雅、不甜腻，适合不想喝太厚但又想来点奶香的人。",
+          note: "推荐设定：热饮 / 三分糖 / 不加料"
+        },
+        {
+          title: "🥇 经典永驻：黑糖珍珠鲜奶",
+          body: "台式珍珠奶茶变体，蜜雪冰城、CoCo、古茗全线在售。黑糖挂壁加 Q 弹珍珠加全脂鲜奶，嚼感拉满，打工续命首选。",
+          note: "推荐设定：少冰 / 五分糖 / 珍珠多加"
+        },
+        {
+          title: "🥥 夏日延续款：生椰拿铁奶茶 / 椰乳奶茶",
+          body: "椰乳替牛奶，热带清甜不腻口，喜茶椰椰系、瑞幸生椰线、古茗生椰抹茶都属这类，夏天尾巴喝也不违和。"
+        },
+        {
+          title: "🍇 果茶党专属：多肉葡萄 / 芝士葡萄",
+          body: "现剥葡萄加绿茶底加芝士奶盖，喜茶和古茗的热门逻辑，酸甜解腻，配晚饭或火锅都很合适。"
+        },
+        {
+          title: "🍠 饱腹治愈系：厚芋泥波波奶茶",
+          body: "沪上阿姨、茶百道常驻款，绵密芋泥加波波加牛乳，一口顶半顿夜宵，适合想喝点东西顺便垫肚子。"
+        },
+        {
+          title: "🍵 茶底控备选：芝士奶盖四季春 / 益禾烤奶",
+          body: "奶盖咸甜挂选前者，蜜雪和喜茶都有类似逻辑；焦糖烤香选后者，属于益禾堂平价爆款路线。"
+        }
+      ];
+
+      function recommendationCopy(query) {
+        const picks = shuffledCopy(recommendationPool).slice(0, 3);
+        return `
+          <p class="copy">嗨～看到您回来太开心啦！千问识别到【${escapeHtml(query)}】已为您匹配了“新人回归礼包”，里面优先放了蜜雪冰城、霸王茶姬、喜茶、奈雪的茶的福利，快去看看吧！</p>
+          <div class="recommend-list">
+            ${picks.map((item) => `
+              <section>
+                <h2 class="rec-title">${item.title}</h2>
+                <p class="rec-body">${item.body}</p>
+                ${item.note ? `<p class="rec-note">${item.note}</p>` : ""}
+              </section>
+            `).join("")}
+          </div>
+        `;
       }
 
 
@@ -784,7 +887,7 @@
 
       function startRewardCountdown() {
         stopRewardCountdown();
-        let remaining = 21 * 3600 + 42 * 60 + 28;
+        let remaining = 24 * 3600;
         const countdown = content.querySelector("#reward-countdown");
         const tick = () => {
           if (!countdown) return;
@@ -796,17 +899,16 @@
       }
 
       function productGrid(store) {
-        const imageOrder = shuffledProductImages();
-        return shuffledCopy(store.products).slice(0, 6).map((product, index) => `
+        return store.products.slice(0, 6).map((product, index) => `
             <div>
-              <div class="photo"><img src="${imageOrder[index % imageOrder.length]}" alt="${product.name}" loading="lazy" decoding="async" fetchpriority="low" /><span class="tag">${product.name}</span></div>
+              <div class="photo photo-sprite product-slot-${index}"><span class="tag">${product.name}</span></div>
               <div class="price"><span class="original">￥${product.price}</span><strong>￥0.1</strong></div>
             </div>
           `).join("");
       }
 
       function productNames(store, count) {
-        return shuffledCopy(store.products).slice(0, count).map((product) => product.name).join("、");
+        return store.products.slice(0, count).map((product) => product.name).join("、");
       }
 
       function storeCard(store, index) {
@@ -822,7 +924,7 @@
               <div class="distance">附近<br />可选购</div>
             </div>
             <p class="desc">${storeName} 的热门单品包含 ${productNames(store, 4)}，适合先看口味和价格，再进店下单。</p>
-            <div class="goods">${productGrid(store)}</div>
+            <div class="goods" style="--board-image: url('${store.boardImage}')">${productGrid(store)}</div>
             <button class="action" type="button" data-reshuffle="1">进店选购</button>
           </article>
         `;
@@ -873,7 +975,7 @@
             </div>
             <div class="reward-asset-wrap">
               <img class="reward-asset" src="${rewardImage}" alt="千问专属福利" />
-              <span class="reward-countdown" id="reward-countdown">21:42:28</span>
+              <span class="reward-countdown" id="reward-countdown">24:00:00</span>
               <button class="claim-hit" type="button" aria-label="立即领取"></button>
             </div>
           </div>
@@ -892,8 +994,7 @@
           <div class="cards" aria-label="可左右滑动的奶茶店卡片">
             ${displayStores.map(storeCard).join("")}
           </div>
-          <p class="copy">您符合新人/老用户回归礼包，请及时领取。您的“${escapeHtml(query)}”，当前为你优先展示蜜雪冰城、霸王茶姬、喜茶、奈雪的茶、茶百道和古茗。</p>
-          <p class="copy">这些店铺覆盖清爽果茶、原叶鲜奶茶、厚乳、芝士水果茶和经典珍珠奶茶，商品图片会随机换位展示，方便快速浏览。</p>
+          ${recommendationCopy(query)}
         `;
 
         content.querySelectorAll("[data-reshuffle]").forEach((button) => {
@@ -918,7 +1019,7 @@
             </div>
             <p class="desc">${store.name} 当前展示 ${productNames(store, 6)}。你可以先对比口味和原价，再结合 ￥0.1 选择想喝的单品。</p>
             <p class="section-title">热门产品</p>
-            <div class="goods">${productGrid(store)}</div>
+            <div class="goods" style="--board-image: url('${store.boardImage}')">${productGrid(store)}</div>
             <button class="action" type="button">进店选购</button>
           </article>
           <p class="copy">如果想喝清爽型，优先看果茶、柠檬茶、轻乳茶；如果想喝浓郁型，优先看鲜奶茶、厚乳、芋泥、烧仙草和波波类。</p>
